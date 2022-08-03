@@ -10,10 +10,7 @@ while (true)
 {
     var line = Console.ReadLine();
 
-    if (string.Equals("quit", line, StringComparison.OrdinalIgnoreCase))
-    {
-        break;
-    }
+    
 
     var coffeeShops = coffeeShopDP.LoadCoffeeShop();
 
