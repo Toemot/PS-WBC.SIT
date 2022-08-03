@@ -1,2 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using WBC.DA;
+
+Console.WriteLine("Hello, Coffee Shop!");
+Console.WriteLine("Write 'help' to list the available commands");
+
+var coffeeShopDP = new CSDataProvider();
+
+while (true)
+{
+    var line = Console.ReadLine();
+    var coffeeShops = coffeeShopDP.LoadCoffeeShop();
+
+    if (string.Equals("help", line, StringComparison.OrdinalIgnoreCase))
+    {
+        Console.WriteLine("> Available coffee shop commands: ");
+        foreach (var coffeeShop in coffeeShops)
+        {
+            Console.WriteLine($"> " + coffeeShop.Location);
+        }
+    }
+}
